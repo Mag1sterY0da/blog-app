@@ -1,4 +1,6 @@
 import { Comment as CommentType } from '@/types/Comment';
+import { Box } from '@mui/material';
+import React from 'react';
 import Comment from './Comment';
 
 type CommentListProps = {
@@ -7,9 +9,13 @@ type CommentListProps = {
 };
 
 const CommentList: React.FC<CommentListProps> = ({ comments, onReplyAdd }) => {
-  return comments.map(comment => (
-    <Comment key={comment._id} comment={comment} onReplyAdd={onReplyAdd} />
-  ));
+  return (
+    <Box>
+      {comments.map(comment => (
+        <Comment key={comment._id} comment={comment} onReplyAdd={onReplyAdd} />
+      ))}
+    </Box>
+  );
 };
 
 export default CommentList;
