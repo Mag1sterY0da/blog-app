@@ -3,6 +3,7 @@ import { formatDate } from '@/utils/formatDate';
 import { Add, Remove } from '@mui/icons-material';
 import { Box, IconButton, Paper, Stack, Typography } from '@mui/material';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import AddComment from './AddComment';
 import CommentList from './CommentList';
 
@@ -24,7 +25,7 @@ const Post: React.FC<PostProps> = ({ post, onCommentAdd, onReplyAdd }) => {
       <Stack direction='column' gap={1}>
         <Stack direction='row' alignItems='center' gap={1}>
           <Typography variant='body1' component='div'>
-            {post.author.name}
+            <Link to={`/user/${post.author._id}`}>{post.author.name}</Link>
           </Typography>
           <Typography color='textSecondary' variant='body2'>
             {formatDate(post.date)}

@@ -4,6 +4,7 @@ import { Remove } from '@mui/icons-material';
 import ReplyIcon from '@mui/icons-material/Reply';
 import { IconButton, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import AddReply from './AddReply';
 import RepliesList from './RepliesList';
 
@@ -23,7 +24,7 @@ const Comment: React.FC<CommentProps> = ({ comment, onReplyAdd }) => {
     <Stack>
       <Stack direction='row' alignItems='center' gap={1}>
         <Typography variant='body1' component='div'>
-          {comment.author.name}
+          <Link to={`/user/${comment.author._id}`}>{comment.author.name}</Link>
         </Typography>
         <Typography color='textSecondary' variant='body2'>
           {formatDate(comment.date)}

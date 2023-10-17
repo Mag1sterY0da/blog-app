@@ -4,6 +4,7 @@ import { Remove } from '@mui/icons-material';
 import ReplyIcon from '@mui/icons-material/Reply';
 import { IconButton, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import AddReply from './AddReply';
 
 type ReplyProps = {
@@ -27,7 +28,7 @@ const Reply: React.FC<ReplyProps> = ({
     <Stack>
       <Stack direction='row' alignItems='center' gap={1}>
         <Typography variant='body1' component='div'>
-          {reply.author.name}
+          <Link to={`/user/${reply.author._id}`}>{reply.author.name}</Link>
         </Typography>
         <Typography color='textSecondary' variant='body2'>
           {formatDate(reply.date)}
